@@ -30,7 +30,29 @@ In the virtual environment created earlier, run
 ```
 $ make cluster
 ```
-As soon as it is done, you can ssh into kubemaster to see the nodes and the pods in the cluster. They may take a while to get ready.
+### SSH to master node
+run
+```
+$ ssh -i .vagrant/machines/kubemaster/virtualbox/private_key vagrant@192.168.99.20
+```
+
+### Get kubeconfig file
+In virtual master node run
+```
+$ cat ~/.kube/config
+```
+copy file content to buffer
+
+### Create local kubeconfig file
+In localhost run
+```
+$ nano ~/.kube/config
+```
+and paste remote config here. 
+
+## Done
+
+### Connect to cluster
 ```
 vagrant@kubemaster:~$ kubectl get nodes
 NAME         STATUS   ROLES                  AGE     VERSION
